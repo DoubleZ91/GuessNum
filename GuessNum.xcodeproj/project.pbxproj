@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0CC19F17CDEFF80011D054 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CC19E17CDEFF80011D054 /* HistoryTableViewController.m */; };
+		0F125C4817CDA88300DA5489 /* GameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F125C4717CDA88300DA5489 /* GameLogic.m */; };
+		0F125C4E17CDCA0C00DA5489 /* GameHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F125C4D17CDCA0C00DA5489 /* GameHistory.m */; };
+		0F125C5117CDD49F00DA5489 /* HistoryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F125C5017CDD49E00DA5489 /* HistoryManager.m */; };
+		0F125C5317CDE96500DA5489 /* HistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F125C5217CDE96500DA5489 /* HistoryTableViewCell.xib */; };
 		0F29E91817CAE6D7005F2306 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F29E91717CAE6D7005F2306 /* UIKit.framework */; };
 		0F29E91A17CAE6D7005F2306 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F29E91917CAE6D7005F2306 /* Foundation.framework */; };
 		0F29E91C17CAE6D7005F2306 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F29E91B17CAE6D7005F2306 /* CoreGraphics.framework */; };
@@ -36,6 +41,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F0CC19D17CDEFF80011D054 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = SOURCE_ROOT; };
+		0F0CC19E17CDEFF80011D054 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = SOURCE_ROOT; };
+		0F125C4617CDA88300DA5489 /* GameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogic.h; sourceTree = "<group>"; };
+		0F125C4717CDA88300DA5489 /* GameLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLogic.m; sourceTree = "<group>"; };
+		0F125C4C17CDCA0C00DA5489 /* GameHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHistory.h; sourceTree = "<group>"; };
+		0F125C4D17CDCA0C00DA5489 /* GameHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHistory.m; sourceTree = "<group>"; };
+		0F125C4F17CDD49E00DA5489 /* HistoryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryManager.h; sourceTree = "<group>"; };
+		0F125C5017CDD49E00DA5489 /* HistoryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryManager.m; sourceTree = "<group>"; };
+		0F125C5217CDE96500DA5489 /* HistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HistoryTableViewCell.xib; path = ../HistoryTableViewCell.xib; sourceTree = "<group>"; };
 		0F29E91417CAE6D7005F2306 /* GuessNum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuessNum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F29E91717CAE6D7005F2306 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0F29E91917CAE6D7005F2306 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,9 +98,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F125C4517CDA83800DA5489 /* GameLogic */ = {
+			isa = PBXGroup;
+			children = (
+				0F125C4617CDA88300DA5489 /* GameLogic.h */,
+				0F125C4717CDA88300DA5489 /* GameLogic.m */,
+				0F125C4C17CDCA0C00DA5489 /* GameHistory.h */,
+				0F125C4D17CDCA0C00DA5489 /* GameHistory.m */,
+				0F125C4F17CDD49E00DA5489 /* HistoryManager.h */,
+				0F125C5017CDD49E00DA5489 /* HistoryManager.m */,
+			);
+			name = GameLogic;
+			sourceTree = "<group>";
+		};
 		0F29E90B17CAE6D7005F2306 = {
 			isa = PBXGroup;
 			children = (
+				0F125C4517CDA83800DA5489 /* GameLogic */,
 				0F29E91D17CAE6D7005F2306 /* GuessNum */,
 				0F29E94117CAE6D8005F2306 /* GuessNumTests */,
 				0F29E91617CAE6D7005F2306 /* Frameworks */,
@@ -117,6 +145,9 @@
 		0F29E91D17CAE6D7005F2306 /* GuessNum */ = {
 			isa = PBXGroup;
 			children = (
+				0F125C5217CDE96500DA5489 /* HistoryTableViewCell.xib */,
+				0F0CC19D17CDEFF80011D054 /* HistoryTableViewController.h */,
+				0F0CC19E17CDEFF80011D054 /* HistoryTableViewController.m */,
 				0F29E92617CAE6D7005F2306 /* AppDelegate.h */,
 				0F29E92717CAE6D7005F2306 /* AppDelegate.m */,
 				0F29E92F17CAE6D7005F2306 /* MainStoryboard.storyboard */,
@@ -236,6 +267,7 @@
 				0F29E92C17CAE6D7005F2306 /* Default@2x.png in Resources */,
 				0F29E92E17CAE6D7005F2306 /* Default-568h@2x.png in Resources */,
 				0F29E93117CAE6D7005F2306 /* MainStoryboard.storyboard in Resources */,
+				0F125C5317CDE96500DA5489 /* HistoryTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +305,10 @@
 				0F29E92417CAE6D7005F2306 /* main.m in Sources */,
 				0F29E92817CAE6D7005F2306 /* AppDelegate.m in Sources */,
 				0F29E93417CAE6D7005F2306 /* ViewController.m in Sources */,
+				0F125C4817CDA88300DA5489 /* GameLogic.m in Sources */,
+				0F125C4E17CDCA0C00DA5489 /* GameHistory.m in Sources */,
+				0F125C5117CDD49F00DA5489 /* HistoryManager.m in Sources */,
+				0F0CC19F17CDEFF80011D054 /* HistoryTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +489,7 @@
 				0F29E94E17CAE6D8005F2306 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0F29E94F17CAE6D8005F2306 /* Build configuration list for PBXNativeTarget "GuessNumTests" */ = {
 			isa = XCConfigurationList;
@@ -461,6 +498,7 @@
 				0F29E95117CAE6D8005F2306 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
