@@ -31,6 +31,7 @@
     [historyMgr readHistoryFromFile]; 
     [gameLogic gameInit];
     
+    [self.view setBackgroundColor:[UIColor colorWithRed:234 / 255.f green:234 / 255.f blue:234 / 255.f alpha:1.f]];
     showPCBullCowLabel.numberOfLines = 0;
     showPCBullCowLabel.text = [NSString stringWithFormat: @"PC猜测数字:%d \n Bulls : %d \n Cows : %d \n GuessCount : %d \n", 0,0,0,0];
     showBullCowLabel.numberOfLines = 0;
@@ -40,6 +41,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     //进入后台程序通知--数据保存
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterBackground:) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
+    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -49,7 +52,7 @@
 }
 
 //键盘显隐相关
-- (void) keyboardWillShow:(NSNotification *)notification  
+- (void) keyboardWillShow:(NSNotification *)notification  	
 {
     if(bViewOffset)
     {
@@ -82,7 +85,7 @@
         [self.view setFrame:rect];
         rect = self.view.frame;
         NSLog(@"%f %f %f %f",rect.origin.x,rect.origin.y,rect.size.height,rect.size.width );
-        viewOffset = 0;
+        viewOffset = NO;
     }
 
 }

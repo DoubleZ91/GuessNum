@@ -9,6 +9,21 @@
 #import "HistoryManager.h"
 
 static HistoryManager *historyMgr;
+NSInteger sortByGuessCount(id obj1 , id obj2, void *context)
+{
+    GameHistory *historyObj1 = (GameHistory*) obj1;
+    GameHistory *historyObj2 = (GameHistory*) obj2;
+    if (historyObj1.guessNum < historyObj2.guessNum) {
+        return NSOrderedDescending;
+    }
+    else if (historyObj1.guessNum == historyObj2.guessNum)
+    {
+        return NSOrderedSame;
+    }
+    else
+        return NSOrderedAscending;
+}
+
 @implementation HistoryManager
 
 @synthesize historyMArray;
@@ -131,6 +146,8 @@ static HistoryManager *historyMgr;
         [historyMArray removeLastObject];
     }
     [historyMArray addObject:currentHistory];
+    historyMArray =[[NSMutableArray alloc ]initWithArray: [historyMArray sortedArrayUsingFunction:sortByGuessCount context:nil]];
 }
+
 
 @end

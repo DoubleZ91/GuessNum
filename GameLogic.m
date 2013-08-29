@@ -133,6 +133,7 @@
 - (void)gameRestart
 {
     winer = 0;
+    countGuess = 0;
     [self gameInit];
 }
 - (void)gameInit

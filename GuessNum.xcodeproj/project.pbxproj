@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0C5E4417CEE27500F779C5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F0C5E4317CEE27400F779C5 /* Icon.png */; };
 		0F0CC19F17CDEFF80011D054 /* HistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CC19E17CDEFF80011D054 /* HistoryTableViewController.m */; };
 		0F125C4817CDA88300DA5489 /* GameLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F125C4717CDA88300DA5489 /* GameLogic.m */; };
 		0F125C4E17CDCA0C00DA5489 /* GameHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F125C4D17CDCA0C00DA5489 /* GameHistory.m */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F0C5E4317CEE27400F779C5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		0F0CC19D17CDEFF80011D054 /* HistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryTableViewController.h; sourceTree = SOURCE_ROOT; };
 		0F0CC19E17CDEFF80011D054 /* HistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryTableViewController.m; sourceTree = SOURCE_ROOT; };
 		0F125C4617CDA88300DA5489 /* GameLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLogic.h; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		0F29E90B17CAE6D7005F2306 = {
 			isa = PBXGroup;
 			children = (
+				0F0C5E4317CEE27400F779C5 /* Icon.png */,
 				0F125C4517CDA83800DA5489 /* GameLogic */,
 				0F29E91D17CAE6D7005F2306 /* GuessNum */,
 				0F29E94117CAE6D8005F2306 /* GuessNumTests */,
@@ -268,6 +271,7 @@
 				0F29E92E17CAE6D7005F2306 /* Default-568h@2x.png in Resources */,
 				0F29E93117CAE6D7005F2306 /* MainStoryboard.storyboard in Resources */,
 				0F125C5317CDE96500DA5489 /* HistoryTableViewCell.xib in Resources */,
+				0F0C5E4417CEE27500F779C5 /* Icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
