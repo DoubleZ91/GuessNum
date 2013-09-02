@@ -30,7 +30,7 @@
 @property (nonatomic, assign) NSInteger pcBulls, pcCows;
 @property (nonatomic, assign) NSInteger playerBulls, playerCows;
 //程序运行
-- (void) alloc;
+- (GameLogic*) init;
 - (NSInteger)generateFourDigit;
 - (void) splitFourDigits: (NSInteger)fourDigit desArray: (NSInteger*)digits;
 - (bool) checkDiffDigits: (NSInteger)fourDigit ;

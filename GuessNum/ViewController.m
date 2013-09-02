@@ -26,7 +26,7 @@
     viewOffset = 0;
     bViewOffset = NO;
     
-    gameLogic = [GameLogic alloc];
+    gameLogic = [[GameLogic alloc] init];
     historyMgr = [HistoryManager getSingletonPtr];
     [historyMgr readHistoryFromFile]; 
     [gameLogic gameInit];

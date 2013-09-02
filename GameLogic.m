@@ -18,9 +18,10 @@
 @synthesize winer;
 @synthesize pcBulls ,pcCows;
 @synthesize playerBulls,playerCows;
-- (void) alloc
+- (GameLogic*) init
 {
-    countGuess = 0;
+    self.countGuess = 0;
+    return self;
 }
 //-------分割数字成4大小数组
 - (void) splitFourDigits: (NSInteger)fourDigit desArray: (NSInteger*)digits

@@ -13,15 +13,15 @@ NSInteger sortByGuessCount(id obj1 , id obj2, void *context)
 {
     GameHistory *historyObj1 = (GameHistory*) obj1;
     GameHistory *historyObj2 = (GameHistory*) obj2;
-    if (historyObj1.guessNum < historyObj2.guessNum) {
-        return NSOrderedDescending;
+    if (historyObj1.countGuess < historyObj2.countGuess) {
+        return NSOrderedAscending;
     }
-    else if (historyObj1.guessNum == historyObj2.guessNum)
+    else if (historyObj1.countGuess == historyObj2.countGuess)
     {
         return NSOrderedSame;
     }
     else
-        return NSOrderedAscending;
+        return NSOrderedDescending;
 }
 
 @implementation HistoryManager
@@ -125,6 +125,7 @@ NSInteger sortByGuessCount(id obj1 , id obj2, void *context)
     else{
         NSString *filePath = [ docPath stringByAppendingPathComponent:fileName];
         historyMArray = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+        [historyMArray sortedArrayUsingFunction:sortByGuessCount context:nil];
     }
     NSLog(@"%@",historyMArray);
     return YES;
