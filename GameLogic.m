@@ -10,17 +10,20 @@
 
 @implementation GameLogic
 
-@synthesize guessNum;
-@synthesize guessNumPC;
-@synthesize beGuessNum;
-@synthesize playGuessNum;
-@synthesize countGuess;
-@synthesize winer;
-@synthesize pcBulls ,pcCows;
-@synthesize playerBulls,playerCows;
+//@synthesize guessNum;
+//@synthesize guessNumPC;
+//@synthesize beGuessNum;
+//@synthesize playGuessNum;
+//@synthesize _countGuess;
+//@synthesize winer;
+//@synthesize pcBulls ,pcCows;
+//@synthesize playerBulls,playerCows;
 - (GameLogic*) init
 {
-    self.countGuess = 0;
+    self = [super init];
+    if (self) {
+        self.countGuess = 0;
+    }
     return self;
 }
 //-------分割数字成4大小数组
@@ -105,42 +108,43 @@
 //gameRun
 - (void) gameRun
 {
-    pcCows = pcBulls = playerCows = playerBulls = 0;
+    _pcCows = _pcBulls = _playerCows = _playerBulls = 0;
     //计数加一
-    ++countGuess;
+    ++_countGuess;
 
     //pc猜数
-    guessNumPC = [self gatherTheNum];
     
-    [self bullsAndCows:beGuessNum desInteger:guessNumPC numOfBulls:&pcBulls numOfCows:&pcCows];
-    NSLog(@"PC bulls %d and cows %d ",pcBulls,pcCows);
+    _guessNumPC = [self gatherTheNum];
     
-    if (pcBulls == 4) {
-        winer = 1;
+    [self bullsAndCows:_beGuessNum desInteger:_guessNumPC numOfBulls:&_pcBulls numOfCows:&_pcCows];
+    NSLog(@"PC bulls %d and cows %d ",_pcBulls,_pcCows);
+    
+    if (_pcBulls == 4) {
+        _winer = 1;
     }
     
     //玩家猜数
-    NSLog(@"GuessNum:%d",playGuessNum);
-    [self bullsAndCows:guessNum desInteger:playGuessNum numOfBulls:&playerBulls numOfCows:&playerCows];
-    NSLog(@"Player bulls %d and cows %d ",playerBulls,playerCows);
-       if (playerBulls == 4) {
-        if (winer == 1) {
-            winer = 3;
+    NSLog(@"GuessNum:%d",_playGuessNum);
+    [self bullsAndCows:_guessNum desInteger:_playGuessNum numOfBulls:&_playerBulls numOfCows:&_playerCows];
+    NSLog(@"Player bulls %d and cows %d ",_playerBulls,_playerCows);
+       if (_playerBulls == 4) {
+        if (_winer == 1) {
+            _winer = 3;
         }
         else
-            winer = 2;
+            _winer = 2;
     }
 }
 - (void)gameRestart
 {
-    winer = 0;
-    countGuess = 0;
+    _winer = 0;
+    _countGuess = 0;
     [self gameInit];
 }
 - (void)gameInit
 {
     //生成供给玩家猜测的数字
-    guessNum = [self generateFourDigit];
-    NSLog(@"PC input guess number:%d",guessNum);
+    _guessNum = [self generateFourDigit];
+    NSLog(@"PC input guess number:%d",_guessNum);
 }
 @end

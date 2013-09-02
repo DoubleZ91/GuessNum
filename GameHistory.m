@@ -9,22 +9,20 @@
 #import "GameHistory.h"
 
 @implementation GameHistory
-@synthesize guessNum;
-@synthesize countGuess;
 
 - (id) initWithCoder:(NSCoder*)coder
 {
-    guessNum = [coder decodeIntegerForKey:@"guessNum"];
-    countGuess = [coder decodeIntegerForKey:@"countGuess"];
+    _guessNum = [coder decodeIntegerForKey:@"guessNum"];
+    _countGuess = [coder decodeIntegerForKey:@"countGuess"];
     return self;
 }
 - (void) encodeWithCoder:(NSCoder *)aCoder
 {
-    [aCoder encodeInteger:guessNum forKey:@"guessNum"];
-    [aCoder encodeInteger:countGuess forKey:@"countGuess"];
+    [aCoder encodeInteger:_guessNum forKey:@"guessNum"];
+    [aCoder encodeInteger:_countGuess forKey:@"countGuess"];
 }
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"GuessNum : %d , CountGuess : %d ", guessNum, countGuess];
+    return [NSString stringWithFormat:@"GuessNum : %d , CountGuess : %d ", _guessNum, _countGuess];
 }
 @end

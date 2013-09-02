@@ -21,10 +21,10 @@
     HistoryManager *historyMgr;
 }
 
-@property(nonatomic, retain) IBOutlet UITextField* inputGuessNumTF;
-@property(nonatomic, retain) IBOutlet UITextField* inputBeGuessNumTF;
-@property(nonatomic, retain) IBOutlet UILabel* showBullCowLabel;
-@property(nonatomic, retain) IBOutlet UILabel* showPCBullCowLabel;
+@property(nonatomic, weak) IBOutlet UITextField* inputGuessNumTF;
+@property(nonatomic, weak) IBOutlet UITextField* inputBeGuessNumTF;
+@property(nonatomic, weak) IBOutlet UILabel* showBullCowLabel;
+@property(nonatomic, weak) IBOutlet UILabel* showPCBullCowLabel;
 
 - (void) keyboardWillShow: (NSNotification *)notification  ;
 - (void) keyboardWillHide: (NSNotification *)notification  ;

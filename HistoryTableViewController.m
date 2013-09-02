@@ -14,8 +14,6 @@
 
 @implementation HistoryTableViewController
 
-@synthesize historyMgr;
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -34,7 +32,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    historyMgr = [HistoryManager getSingletonPtr];
+    _historyMgr = [HistoryManager getSingletonPtr];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,7 +53,7 @@
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return historyMgr.historyMArray.count;
+    return _historyMgr.historyMArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,7 +62,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
     // Configure the cell...
-    GameHistory *history = [historyMgr.historyMArray objectAtIndex:indexPath.row];
+    GameHistory *history = [_historyMgr.historyMArray objectAtIndex:indexPath.row];
     UILabel *indexLabel = (UILabel*) [cell viewWithTag:100];
     indexLabel.text =  [NSString stringWithFormat:@"%d",indexPath.row + 1 ];
     UILabel *guessNum = (UILabel*) [cell viewWithTag:103];

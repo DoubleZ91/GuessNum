@@ -9,10 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface GameHistory : NSObject<NSCoding>
-{
-    NSInteger guessNum;
-    NSInteger countGuess;
-}
+
 @property (nonatomic, assign) NSInteger guessNum;
 @property (nonatomic, assign) NSInteger countGuess;
 

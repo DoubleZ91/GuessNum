@@ -14,10 +14,6 @@
 
 @implementation ViewController
 
-@synthesize inputBeGuessNumTF;
-@synthesize inputGuessNumTF;
-@synthesize showBullCowLabel;
-@synthesize showPCBullCowLabel;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -32,10 +28,10 @@
     [gameLogic gameInit];
     
     [self.view setBackgroundColor:[UIColor colorWithRed:234 / 255.f green:234 / 255.f blue:234 / 255.f alpha:1.f]];
-    showPCBullCowLabel.numberOfLines = 0;
-    showPCBullCowLabel.text = [NSString stringWithFormat: @"PC猜测数字:%d \n Bulls : %d \n Cows : %d \n GuessCount : %d \n", 0,0,0,0];
-    showBullCowLabel.numberOfLines = 0;
-    showBullCowLabel.text = [NSString stringWithFormat: @" Bulls : %d \n Cows : %d \n GuessCount : %d \n",  0,0,0];
+    _showPCBullCowLabel.numberOfLines = 0;
+    _showPCBullCowLabel.text = [NSString stringWithFormat: @"PC猜测数字:%d \n Bulls : %d \n Cows : %d \n GuessCount : %d \n", 0,0,0,0];
+    _showBullCowLabel.numberOfLines = 0;
+    _showBullCowLabel.text = [NSString stringWithFormat: @" Bulls : %d \n Cows : %d \n GuessCount : %d \n",  0,0,0];
     //增加键盘显隐监听
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -97,8 +93,8 @@
 //界面相应
 - (IBAction) pressBeGuessBtnOK:(id)sender
 {
-    [inputBeGuessNumTF resignFirstResponder];
-    gameLogic.beGuessNum = [inputBeGuessNumTF.text integerValue];
+    [_inputBeGuessNumTF resignFirstResponder];
+    gameLogic.beGuessNum = [_inputBeGuessNumTF.text integerValue];
     if ([gameLogic checkIsFourDigits:gameLogic.beGuessNum] && [gameLogic checkDiffDigits:gameLogic.beGuessNum]) {
         NSLog(@"BeGuessNum:%d",gameLogic.beGuessNum);
     }
@@ -110,15 +106,15 @@
 }
 - (IBAction) pressGuessBtnOK:(id)sender
 {
-    [inputGuessNumTF resignFirstResponder];
-    gameLogic.playGuessNum = [inputGuessNumTF.text integerValue];
+    [_inputGuessNumTF resignFirstResponder];
+    gameLogic.playGuessNum = [_inputGuessNumTF.text integerValue];
     if ([gameLogic checkIsFourDigits:gameLogic.playGuessNum] && [gameLogic checkDiffDigits:gameLogic.playGuessNum]) {
 
         [gameLogic gameRun];
         //更新bulls和cows显示
-        showPCBullCowLabel.text = [NSString stringWithFormat: @"PC猜测数字:%d \n Bulls : %d \n Cows : %d \n GuessCount : %d \n", gameLogic.guessNumPC, gameLogic.pcBulls,gameLogic.pcCows,gameLogic.countGuess];
+        _showPCBullCowLabel.text = [NSString stringWithFormat: @"PC猜测数字:%d \n Bulls : %d \n Cows : %d \n GuessCount : %d \n", gameLogic.guessNumPC, gameLogic.pcBulls,gameLogic.pcCows,gameLogic.countGuess];
         //更新bulls和cows显示
-        showBullCowLabel.text = [NSString stringWithFormat: @" Bulls : %d \n Cows : %d \n GuessCount : %d \n",  gameLogic.playerBulls,gameLogic.playerCows,gameLogic.countGuess];
+        _showBullCowLabel.text = [NSString stringWithFormat: @" Bulls : %d \n Cows : %d \n GuessCount : %d \n",  gameLogic.playerBulls,gameLogic.playerCows,gameLogic.countGuess];
         
         if (gameLogic.winer != 0){
             NSString *winerStr;
@@ -132,8 +128,8 @@
                         /*
                         //第一种存储
                          struct History tmpHistory;
-                        tmpHistory.guessNum = gameLogic.guessNum;
-                        tmpHistory.countGuess = gameLogic.countGuess;
+                        tmpHistory._guessNum = gameLogic._guessNum;
+                        tmpHistory._countGuess = gameLogic._countGuess;
                         [historyMgr updateWinHistoryArray:&tmpHistory];
                         */
                         //第二种存储 by NSKeyedArchiver
@@ -160,13 +156,13 @@
 }
 - (IBAction)backgroundBtnDown:(id)sender
 {
-    [inputBeGuessNumTF resignFirstResponder];
-    [inputGuessNumTF resignFirstResponder];
+    [_inputBeGuessNumTF resignFirstResponder];
+    [_inputGuessNumTF resignFirstResponder];
 }
 - (IBAction)didEndOnExit:(id)sender
 {
     [sender resignFirstResponder];
-    gameLogic.beGuessNum = [inputBeGuessNumTF.text integerValue];
+    gameLogic.beGuessNum = [_inputBeGuessNumTF.text integerValue];
     NSLog(@"BeGuessNum:%d",gameLogic.beGuessNum);
     if ([gameLogic checkIsFourDigits:gameLogic.beGuessNum] && [gameLogic checkDiffDigits:gameLogic.beGuessNum]) {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Success" message:@"Right four digits!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil , nil ];
@@ -187,10 +183,10 @@
 //---restart
 - (void) restart
 {
-    inputBeGuessNumTF.text = nil;
-    inputGuessNumTF.text = nil;
-    showBullCowLabel.text = [NSString stringWithFormat: @" Bulls : %d \n Cows : %d \n GuessCount : %d \n",0,0,0];
-    showPCBullCowLabel.text = [NSString stringWithFormat: @"PC猜测数字:%d \n Bulls : %d \n Cows : %d \n GuessCount : %d \n",0,0,0,0];
+    _inputBeGuessNumTF.text = nil;
+    _inputGuessNumTF.text = nil;
+    _showBullCowLabel.text = [NSString stringWithFormat: @" Bulls : %d \n Cows : %d \n GuessCount : %d \n",0,0,0];
+    _showPCBullCowLabel.text = [NSString stringWithFormat: @"PC猜测数字:%d \n Bulls : %d \n Cows : %d \n GuessCount : %d \n",0,0,0,0];
     
     //游戏数据重置
     [gameLogic gameRestart];
